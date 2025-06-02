@@ -97,7 +97,7 @@ for(let i = 0; i < inputAngkaFibonaci; i++){
     let temp:number = b+a; //F(n) = F(n-1) + F(n-2)
     a = b;
     b= temp;
-    // console.log(a);
+    console.log(a);
 }
 console.log(a);
 
