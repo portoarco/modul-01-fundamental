@@ -1,0 +1,58 @@
+<script>
+    // Fungsi PROMPT / prompt(): untuk menerima inputan dari user 
+    
+    // const nama = prompt("Masukkan Nama Anda");
+    // console.log(nama);
+
+    // Fungsi ALERT / alert() : untuk menampilkan data melalui pop-up browser 
+
+    // alert(nama);
+
+    // Contoh Penjumlahan
+    // INPUT
+    // const angkaA = prompt("Masukkan Angka Pertama");
+    // const angkaB = prompt("Masukkan angka kedua")
+
+    // PROCESS
+    // Prompt itu mengambil data dengan model string, maka perlu diparsing, rumusnya parseInt()
+    // const result = parseInt(angkaA) + parseInt(angkaB);
+
+    // OUTPUT
+    // alert(`${angkaA}+${angkaB} = ${result}`);
+
+// EXERCISE : buat aplikasi yang bisa mendeteksi suatu data termasuk email atau bukan 
+/*
+    Example 1
+    input: edo@mail.com
+    output: edo@mail.com adalah EMAIL 
+
+    Example 2
+    input: edo@mail
+    output: edo@mail bukan EMAIL
+
+    Example 3
+    input: edomail
+    output: edomail bukan EMAIL
+*/
+
+// ANSWER
+    // INPUT
+    let inputEmail = prompt("Masukkan Email Anda");
+    // PROCESS
+    let validateDomain = inputEmail.includes(".com") || inputEmail.includes(".org") || inputEmail.includes(".net")
+    let validateSymbol = inputEmail.includes("@");
+        // Testing
+        // console.log(validateDomain);
+        // console.log(validateSymbol);
+    // OUTPUT (Validation Formula)
+
+    if(!validateDomain){
+        alert(`${inputEmail} BUKAN email`);
+    } else if(validateSymbol === false) {
+        alert(`${inputEmail} BUKAN email`);
+    }  
+    else {
+        alert(`${inputEmail} ADALAH email`);
+    }
+
+</script>

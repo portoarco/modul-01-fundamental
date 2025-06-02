@@ -1,0 +1,55 @@
+<script>
+    // INPUT
+    // let hari1 = parseInt(prompt("Masukkan Hari Pertama"));
+    // let bulan1 = parseInt(prompt("Masukkan Bulan Pertama"))-1;
+    // let tahun1 = parseInt(prompt("Masukkan Tahun Pertama"));
+    
+    // let hari2 = parseInt(prompt("Masukkan Hari Kedua"));
+    // let bulan2 = parseInt(prompt("Masukkan Bulan Kedua"))-1;
+    // let tahun2 = parseInt(prompt("Masukkan Tahun Kedua"));
+
+    // PROCESS
+    // Menjadikan pecahan hari jadi tanggalan utuh ke 1 variabel 
+    // const startDate = new Date(tahun1,bulan1,hari1);
+    // const endDate = new Date(tahun2,bulan2,hari2);
+    
+    // Testing Date
+    // console.log(date1);
+    // console.log(date2);
+
+
+
+    // Koreksi untuk antisipasi tanggal besar dan kecil tertukar
+    // if(startDate < endDate){
+    //     let diffYearA = endDate.getFullYear()-startDate.getFullYear();
+    //     let diffMonthA = endDate.getMonth()-startDate.getMonth();
+    //     let diffDayA = endDate.getDate()-startDate.getDate();
+
+    //     // OUTPUT A
+    //     alert(`${diffYearA} Tahun, ${diffMonthA} Bulan, ${diffDayA} Hari`)
+
+    // } else {
+    //     let diffYearB = startDate.getFullYear()-endDate.getFullYear();
+    //     let diffMonthB = startDate.getMonth()-endDate.getMonth();
+    //     let diffDayB = startDate.getDate()-endDate.getDate();
+
+    //     // OUTPUT B
+    //     alert(`${diffYearB} Tahun, ${diffMonthB} Bulan, ${diffDayB} Hari`);
+    // }
+
+    
+// Catatan:
+// Pakai konversi dengan daysDifference = diff (1000*60*60*24);
+// 1000 = acuan ms; acuan menit = 60; acuan jam = 60; dikali 24 jam (1 hari)
+
+// PEMBETULAN:
+
+    const tanggalAwal = new Date(prompt("Masukkan tanggal awal:"));
+    const tanggalAkhir =  new Date(prompt("Masukkan tanggal akhir:"));
+
+    const difference = tanggalAkhir.getTime() - startDate.getTime();
+
+    const daysDifference = diff / (1000 * 60 * 60 *24);
+    alert(daysDifference);
+
+</script>
