@@ -6,7 +6,7 @@ Write a code to check whether the number is odd or even
 
 let inputNumber:number = 25;
 
-if(inputNumber % 2 === 0){
+if(inputNumber % 2 === 0){ //Kenapa 2? Soalnya nilai genap terkecil itu 2, maka modulus mjd 2; Dicek apakah nilainya habis bila terus dibagi 2
     console.log(`${inputNumber} adalah angka GENAP`);
     
 } else {
@@ -22,13 +22,13 @@ Write a code to check whether the number is prime number or not
 */ 
 
 // Syarat Bilangan Prima 
-/**
+/*
  * Bilangan bulat positif
  * Lebih besar dari 1
  * Hanya punya 2 faktor yaitu 1 dan bilangan itu sendiri 
 */ 
 
-let inputAngkaPrima:number = 6; 
+let inputAngkaPrima:number = 7; 
 let isPrime:boolean = true;
 
 if(inputAngkaPrima <= 1){
@@ -50,6 +50,7 @@ if(inputAngkaPrima <= 1){
 
 
 
+
 // Soal 3
 /*
 Write a code to find the sum of the numbers 1 to N
@@ -61,7 +62,6 @@ let inputAngkaSum:number = 5;
 let hasilJumlahAngka:number = 0;
 
 for(let i:number = 1; i <= inputAngkaSum; i++){
-    // console.log(i); Testing
    hasilJumlahAngka = hasilJumlahAngka + i; //atau shortcut : hasilJumlahAngka += i;
 }
 console.log(hasilJumlahAngka);
@@ -89,17 +89,19 @@ console.log(hasilFaktorial);
 Write a code to print the first N fibonacci numbers
  ○ Example: 15 → 610
 */ 
-let inputAngkaFibonaci:number= 3; //F(n) ==> F(3)
+let inputAngkaFibonaci:number= 3;
 let a:number = 0; // F(n-2)
 let b:number = 1; // F(n-1)
 
 for(let i = 0; i < inputAngkaFibonaci; i++){
     let temp:number = b+a; //F(n) = F(n-1) + F(n-2)
     a = b;
-    b= temp;
+    b = temp; 
     console.log(a);
 }
-console.log(a);
+
+    // Output
+    console.log(a);
 
 
 
