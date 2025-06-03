@@ -101,8 +101,6 @@ console.log(daftarSiswa);
 
 // 3. Memasukkan data dalam variabel output. Apabila ada potensi berubah, maka pakainya adalah let 
 
-
-
 const daftarSiswaa:string[] = ["Edo","Edi","Eda"];
 let output:string="";
 
@@ -127,7 +125,6 @@ let output:string="";
 
 console.log("Daftar Siswa: ");
 console.log(output);
-
 
 
 

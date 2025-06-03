@@ -1,0 +1,108 @@
+<script>
+// DATABASE
+    let mainMenu = [
+        "Lihat Produk",
+        "Tambah Produk",
+        "Perbarui Produk",
+        "Hapus Produk",
+        "Keluar",
+
+    ];
+
+    let listProduct = 
+    [
+        "Nasi Goreng",
+        "Mie Goreng",
+        "Mie Rebus"
+
+    ]
+// FUNCTION
+function showList(){
+    let showListProduct = "===DAFTAR MENU===\n" + "";
+    for(var j = 0; j < listProduct.length; j++){
+        showListProduct = showListProduct + `${j+1}. ${listProduct[j]} \n`
+    }
+    return showListProduct;
+}
+
+function addProduct(){
+    let userAddListInput = prompt("Masukkan Produk Baru","")
+    listProduct.push(userAddListInput);
+    alert(`Produk ${userAddListInput} berhasil ditambahkan!`);
+    return showList();
+}
+
+function updateProduct(){
+    alert(showList());
+    let userUpdateInput = prompt("Masukkan Nomor Menu yang ingin Diperbarui:","");
+        // console.log( typeof userUpdateInput);
+    // PARSING Data (Convert str to int)
+    let parsingData = parseInt(userUpdateInput);
+    // Index Adjustment
+    let adjUpdate = parsingData-1; // 1 jadi 0 = nasi goreng (index lama) 
+    let oldDataMenu = listProduct[adjUpdate]; //pertahankan data awal sebelum di reassign
+    // User Input 
+    let userUpdateInputMenu = prompt("Masukkan Produk Baru:","") // migor
+        // console.log(userUpdateInputMenu);
+    // UPDATE Formula (Reassign Method)
+    listProduct[adjUpdate] = userUpdateInputMenu;
+    // console.log(listProduct);
+    alert(`Produk ${oldDataMenu} telah diperbarui menjadi ${userUpdateInputMenu}`);
+    return showList();
+}
+
+function deleteProduct(){
+    alert(showList());
+    let userDeleteProductInput = parseInt(prompt("Masukkan Nomor Produk yang ingin Dihapus:","")); // 1.Nasi Goreng (indeks ke-0 di DB)
+    // console.log(userDeleteProductInput);
+    // Adjustment Index
+    let adjDelete = userDeleteProductInput - 1; //Indeks 0 = nasi goreng
+    listProduct.splice(adjDelete,1);
+    alert("Produk BERHASIL dihapus!");
+    return showList();
+}
+
+// PROCESS and OUTPUT
+
+let userInputMainMenu;
+
+    do{
+        // Main Menu
+        let outputMainMenu = "===MENU UTAMA=== \n" + "";
+        for(var i = 0; i < mainMenu.length; i++){
+        outputMainMenu = outputMainMenu + `${i+1}. ${mainMenu[i]} \n`
+        };
+        
+        userInputMainMenu = prompt(`${outputMainMenu} \n Masukkan Pilihan:`,"");
+
+        // Cancel Program
+        if(userInputMainMenu === null){
+            break;
+        }
+
+
+        // Conditional Options 
+        switch(userInputMainMenu){
+            case "1": //Show List All Product
+                alert(showList())
+                break;
+            case "2": //Add List Product
+                alert(addProduct());
+                break;
+            case "3": //Update List Product
+                alert(updateProduct());
+                break;
+            case "4": //Delete Product
+                alert(deleteProduct());
+                break;
+            case "5":
+                alert("Thank you!")
+                break;
+            default:
+                alert("Masukkan Pilihan yang Sesuai!")
+                break;
+        }
+
+    } while (userInputMainMenu !== "5");     
+    
+</script>

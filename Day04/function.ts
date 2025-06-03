@@ -19,7 +19,7 @@
     const hasill:number = angkaA + angkaB;
 // OUTPUT : menampilkan hasil penjumlahan
     console.log(hasill);
-
+  
 // Buat Kode di atas menjadi Declarative Function 
 /**
  * Declarative func:
