@@ -1,0 +1,91 @@
+<script>
+
+    // Struktur Array = Nama barang, harga barang, stok barang 
+    const database = [
+        ["Kaos",35000,12],
+        ["Celana",40000,5],
+        ["Jeans",50000,3]
+    ];
+
+    // const menu = prompt(` === Menu Management Data ===
+    // 1. Lihat data 
+    // 2. Tambah data 
+    // 3. Perbarui data
+    // 4. Hapus Data
+    // 5. Keluar
+
+    // Masukkan nomor menu yang dipilih: `);
+
+    function lihatData(){
+        // 1. Menyiapkan penampung output tampilan data
+        let daftar = "=== Daftar Data ==== \n";
+        for(let index = 0; index < database.length;index++){
+            // 2. Mengakses data dalam array satu per satu
+            const value = database[index];
+            // 3. Menambahkan tiap data ke dalam variabel output
+            daftar += `${index + 1}. ${value}\n`
+                // daftar = daftar + `${index+1}. ${value}\n`
+            
+        }
+        // 4. Menampilkan data output
+        alert(daftar);
+    }
+    // function tidak perlu masuk ke DO WHILE  karena function di atas hanya sifatnya buat fungsi, bukan MENJALANKAN FUNGSI. Jadi kalo dimasukkan ke do while malah membebani program
+
+    function tambahData(){
+        // 1. Menerima input data baru dari prompt user
+        const nama = prompt("Masukkan nama data baru:")
+        // 2. Menambahkan data ke dalam database dengan push() --> karena menambah datanya di akhir 
+        database.push(nama);
+        // alert(`Penambahan data ${nama} berhasil`);
+    }
+
+    function updateData(){
+
+    }
+
+    function deleteData(){
+        
+    }
+
+
+
+    // CONTOH DENGAN IF ELSE (BEBAS SESUAI PREFERENSI);
+    // if(menu === "1"){
+    //     lihatData();
+    // } else if(menu === "2"){
+    //     // Tambah Data function
+    // }
+
+    // Looping Statement 
+    do{
+        const menu = prompt(` === Menu Management Data ===
+    1. Lihat data 
+    2. Tambah data 
+    3. Perbarui data
+    4. Hapus Data
+    5. Keluar
+
+    Masukkan nomor menu yang dipilih: `);
+
+    // Controller 
+    if(menu === "1"){
+        lihatData(); //menjalankan fungsi
+    } else if(menu === "2"){
+        tambahData();// Tambah Data function
+        
+        // alert("Belum Tersedia");
+    } else if (menu === "3"){
+        // perbarui data function
+    } else if (menu === "4"){
+        // delete data function
+    } else if(menu === "5"){
+        // Keluar data function
+        break;
+    }
+
+
+
+    } while (true) //Kondisi pake truthly biar dia looping terus
+
+</script>

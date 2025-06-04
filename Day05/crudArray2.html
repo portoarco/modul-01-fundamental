@@ -1,0 +1,147 @@
+<script>
+
+    // Struktur Array = Nama barang, harga barang, stok barang 
+    const database = [
+    ["Kaos",35000,12],
+    ["Celana",40000,5],
+    ["Sepatu",50000,10]   
+    ];
+
+    // const menu = prompt(` === Menu Management Data ===
+    // 1. Lihat data 
+    // 2. Tambah data 
+    // 3. Perbarui data
+    // 4. Hapus Data
+    // 5. Keluar
+
+    // Masukkan nomor menu yang dipilih: `);
+
+    function lihatData(){
+        // 1. Menyiapkan penampung output tampilan data
+        let daftar = "=== Daftar Produk ==== \n";
+        for(let index = 0; index < database.length;index++){
+            // 2. Mengakses data dalam array satu per satu
+            const lihatDataName = database[index][0];
+            const lihatDataHarga = database[index][1];
+            const lihatDataStok = database[index][2];
+            // 3. Menambahkan tiap data ke dalam variabel output
+            daftar += `${index + 1}. ${lihatDataName}, Harga = Rp. ${lihatDataHarga} | Stok Tersedia = ${lihatDataStok} pcs \n`
+        }
+        // 4. Menampilkan data output
+        alert(daftar);
+    }
+    // function tidak perlu masuk ke DO WHILE  karena function di atas hanya sifatnya buat fungsi, bukan MENJALANKAN FUNGSI. Jadi kalo dimasukkan ke do while malah membebani program
+
+    function tambahData(){
+        // Menerima input data baru dari prompt user
+        const namaBaru = prompt("Masukkan Nama Produk Baru","")
+        const hargaBaru = parseInt(prompt("Masukkan Harga Produk Baru",""))
+        const stokAwal = parseInt(prompt("Masukkan Jumlah Stok Awal",""))
+
+        // Buat Penampung masing-masing prompt
+        let databaru =[namaBaru,hargaBaru,stokAwal];
+        // console.log(databaru); //Variabel testing
+
+        // Push data ke database 
+        database.push(databaru);
+        alert(`Penambahan data ${namaBaru} berhasil`);
+        lihatData();
+
+    }
+
+    function perbaruiData(){
+        // Tampilkan daftar produk
+        lihatData();
+
+        // Menerima input nomor data lama dari prompt user\
+        let nomorUpdate = parseInt(prompt("Masukkan Nomor Produk yang ingin Update:",""))-1;
+
+        // Old Variable Data
+        let oldData = database[nomorUpdate];
+        let oldDataName = database[nomorUpdate][0];
+
+        // Pilihan Update Data
+        let nomorDataUpdate = parseInt(prompt(`Data ${oldDataName} mana yang ingin diperbarui?
+            1. Nama
+            2. Harga
+            3. Stok Barang  
+        `),"");
+
+
+        let namaUpdate = oldData[0];
+        let hargaUpdate = oldData[1];
+        let stokUpdate = oldData[2];
+
+        if(nomorDataUpdate === 1){
+            namaUpdate = prompt("Masukkan Nama Produk Baru","");
+        } else if(nomorDataUpdate === 2){
+            hargaUpdate = parseInt(prompt("Masukkan Harga Produk Baru",""))
+        } else if(nomorDataUpdate === 3){
+            stokUpdate = parseInt(prompt("Masukkan Jumlah Update Stok (pcs)",""))
+        } else {
+            alert("Pilihan Invalid");
+            return;
+        }
+
+        // Tampung data terupdate dalam variabel
+        let dataUpdate =[namaUpdate,hargaUpdate,stokUpdate];
+
+        // Update Data Formula
+        database[nomorUpdate] = dataUpdate;
+
+        alert(`Update Data Berhasil`)
+        lihatData();
+    }
+
+
+    function deleteData(){
+        lihatData();
+        let userDeleteInput =  parseInt(prompt("Masukkan Nomor Produk yang ingin Dihapus:",""))-1;
+
+        // Index Adjustment
+        database.splice(userDeleteInput,1);
+        alert("Produk Berhasil Dihapus");
+
+        lihatData();
+
+    }
+
+    // CONTOH DENGAN IF ELSE (BEBAS SESUAI PREFERENSI);
+    // if(menu === "1"){
+    //     lihatData();
+    // } else if(menu === "2"){
+    //     // Tambah Data function
+    // }
+
+    // Looping Statement 
+    do{
+        const menu = prompt(` === Menu Management Data ===
+    1. Lihat data 
+    2. Tambah data 
+    3. Perbarui data
+    4. Hapus Data
+    5. Keluar
+
+    Masukkan nomor menu yang dipilih: `);
+
+    // Controller 
+    if(menu === "1"){
+        lihatData(); //menjalankan fungsi
+    } else if(menu === "2"){
+        tambahData();// Tambah Data function
+        // alert("Belum Tersedia");
+    } else if (menu === "3"){
+        perbaruiData();
+        // perbarui data function
+    } else if (menu === "4"){
+        deleteData();
+        // delete data function
+    } else if(menu === "5"){
+        alert("Thank you!");
+        // Keluar data function
+        break;
+    }
+
+    } while (true) //Kondisi pake truthly biar dia looping terus
+
+</script>
