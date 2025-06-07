@@ -7,8 +7,15 @@ let draw = 0;
 let totalGame = 0;
 let winRate =0;
 
-let nama = prompt("WELCOME TO SUIT GAME\nSiapa Namamu?","");
-alert(`Hi ${nama}, Let's Get Started!`);
+   
+
+
+// if(nama !== string){
+//     alert("Masukkan Input Yang Valid");
+// } 
+
+
+
 
 
 // FUNCTION
@@ -108,8 +115,16 @@ function suit(parsingDisplay){
 //LOOPING PROGRAM
 
 do{
-    let display = prompt(`===SUIT GAME===\n Select one:\n 1.BATU\n 2.GUNTING\n 3.KERTAS`,"");
+    let nama = prompt("WELCOME TO SUIT GAME\nSiapa Namamu?","");
 
+    if(typeof nama !== "string" || nama === ""){
+        alert("Nama tidak Valid");
+        continue;
+    } 
+    
+    alert(`Hi ${nama} Let's Get Started!`);
+
+    let display = prompt(`===SUIT GAME===\n Select one:\n 1.BATU\n 2.GUNTING\n 3.KERTAS`,"");
     let parsingDisplay = parseInt(display);
 
     // Controller
@@ -121,8 +136,13 @@ do{
                 break;
             }
         } else {
-            alert("Input tidak valid! Pilih 1/2/3!")
+            if(confirm("Are You Sure") === true){
+                alert(`===GAME SUMMARY==\n WIN: ${win}\n LOSE: ${lose} \n DRAW: ${draw}\n Total Game = ${totalGame} || Winrate: ${winRate.toFixed(2)}%\n ---Thank you for playing ${nama} 🤝---!`)
+                break;
+            }
+            
         }
+
 }while(true);
 
 
