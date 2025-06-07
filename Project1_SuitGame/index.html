@@ -1,0 +1,129 @@
+<script>
+// WIN,LOSE,AND DRAW VARIABLE 
+
+let win = 0;
+let lose = 0;
+let draw = 0;
+let totalGame = 0;
+let winRate =0;
+
+let nama = prompt("WELCOME TO SUIT GAME\nSiapa Namamu?","");
+alert(`Hi ${nama}, Let's Get Started!`);
+
+
+// FUNCTION
+function suit(parsingDisplay){
+    // Computer Answer (randomizer)
+    const computerAnswer = Math.ceil(Math.random()*3); //1
+
+    // Comp Conversion to Human Lang
+    let computerAnswer_conv = computerAnswer.toString(); // "1"
+    if(computerAnswer_conv === "1"){
+        computerAnswer_conv = "BATU ";
+
+    } else if(computerAnswer_conv === "2"){
+        computerAnswer_conv = "GUNTING";
+
+    }else if(computerAnswer_conv === "3"){
+        computerAnswer_conv = "KERTAS"; 
+
+    }
+
+
+    // Human Number to Human Lang
+    let humanAnswer_lang = parsingDisplay.toString()
+
+    if(humanAnswer_lang === "1"){
+        humanAnswer_lang = "BATU";
+    } else if(humanAnswer_lang === "2"){
+        humanAnswer_lang = "GUNTING";
+    }else if(humanAnswer_lang === "3"){
+        humanAnswer_lang = "KERTAS"; 
+    }
+
+
+    
+    // Human VS Computer
+    if(parsingDisplay === computerAnswer){
+        // console.log("DRAW");
+        alert(`
+        Pilihanmu: ${humanAnswer_lang} 
+        Komputer: ${computerAnswer_conv}\n
+        RESULT: DRAW! 🤝`);
+        draw++;
+
+    } else {
+        if(parsingDisplay === 1 && computerAnswer === 2){
+            // console.log("WIN");
+            alert(`
+        Pilihanmu: ${humanAnswer_lang} 
+        Komputer: ${computerAnswer_conv}\n
+        RESULT: WIN!✅`);
+            win++;
+            
+        } else if(parsingDisplay ===1 && computerAnswer === 3){
+            // console.log("WIN");
+            alert(`
+        Pilihanmu: ${humanAnswer_lang} 
+        Komputer: ${computerAnswer_conv}\n
+        RESULT: LOSE❌ `)
+            lose++;
+        } else if(parsingDisplay ===2 && computerAnswer === 3){
+            // console.log("WIN");
+            alert(`
+        Pilihanmu: ${humanAnswer_lang} 
+        Komputer: ${computerAnswer_conv}\n
+        RESULT: WIN!✅`);
+            win++;
+        } else if(parsingDisplay ===2 && computerAnswer === 1){
+            // console.log("LOSE");
+            alert(`
+        Pilihanmu: ${humanAnswer_lang} 
+        Komputer: ${computerAnswer_conv}\n
+        RESULT: LOSE❌`);
+            lose++;
+        } else if(parsingDisplay ===3 && computerAnswer === 1){
+            // console.log("LOSE");
+            alert(`
+        Pilihanmu: ${humanAnswer_lang} 
+        Komputer: ${computerAnswer_conv}\n
+        RESULT: WIN!✅`);
+            win++;
+        } else if(parsingDisplay ===3 && computerAnswer === 2){
+            // console.log("LOSE");
+            alert(`
+        Pilihanmu: ${humanAnswer_lang} 
+        Komputer: ${computerAnswer_conv}\n
+        RESULT: LOSE❌`);
+            lose++
+        }
+    }
+
+    totalGame = win + lose + draw;
+    winRate = (win / totalGame) * 100;
+
+}
+
+
+//LOOPING PROGRAM
+
+do{
+    let display = prompt(`===SUIT GAME===\n Select one:\n 1.BATU\n 2.GUNTING\n 3.KERTAS`,"");
+
+    let parsingDisplay = parseInt(display);
+
+    // Controller
+        if(parsingDisplay === 1 || parsingDisplay === 2 || parsingDisplay === 3){
+            suit(parsingDisplay);
+            alert(`===TOTAL SCORE===\n WIN: ${win}\n LOSE: ${lose} \n DRAW: ${draw}`);
+            if(confirm("Mau Main Lagi?") === false){
+                alert(`===GAME SUMMARY==\n WIN: ${win}\n LOSE: ${lose} \n DRAW: ${draw}\n Total Game = ${totalGame} || Winrate: ${winRate.toFixed(2)}%\n ---Thank you for playing ${nama} 🤝---!`);
+                break;
+            }
+        } else {
+            alert("Input tidak valid! Pilih 1/2/3!")
+        }
+}while(true);
+
+
+</script>

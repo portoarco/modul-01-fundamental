@@ -117,9 +117,6 @@ console.log(jumlahData());
 
     console.log(gabungkan_arr);
     
-
-    
-
     return gabungkan_arr;
  }
 
