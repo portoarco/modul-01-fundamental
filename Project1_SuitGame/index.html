@@ -8,15 +8,8 @@ let totalGame = 0;
 let winRate =0;
 
    
-
-
-// if(nama !== string){
-//     alert("Masukkan Input Yang Valid");
-// } 
-
-
-
-
+let nama = prompt("WELCOME TO SUIT GAME\nSiapa Namamu?",""); 
+    alert(`Hi ${nama} Let's Get Started!`);
 
 // FUNCTION
 function suit(parsingDisplay){
@@ -115,14 +108,7 @@ function suit(parsingDisplay){
 //LOOPING PROGRAM
 
 do{
-    let nama = prompt("WELCOME TO SUIT GAME\nSiapa Namamu?","");
-
-    if(typeof nama !== "string" || nama === ""){
-        alert("Nama tidak Valid");
-        continue;
-    } 
     
-    alert(`Hi ${nama} Let's Get Started!`);
 
     let display = prompt(`===SUIT GAME===\n Select one:\n 1.BATU\n 2.GUNTING\n 3.KERTAS`,"");
     let parsingDisplay = parseInt(display);
