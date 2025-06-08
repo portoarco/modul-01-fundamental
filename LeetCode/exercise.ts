@@ -98,16 +98,122 @@ function isPalindrome(x: number) {
         return false
     } 
 
-//     while(x == 0){
-//         //Logical Steps:
-//         // 1. Modulus dengan 10 untuk ambil digit belakang
-//         let modulus = (x % 10);//123 % 10 = 3
-//         let add = reversed * 10 + modulus // 0 * 10 + 3 = 3 
-//         reversed = Math.floor(add/modulus)
+    while(x > 0){
+       let digit = x % 10;
+       reversed  = reversed * 10 + digit;
+       x = Math.floor(x/10);
     
-//     }
+    }
 
-//     return reversed === x;
+    return reversed === number;
 };
 
-// console.log(isPalindrome(123))
+console.log(isPalindrome(121))
+
+// Exercise 4 
+/*
+Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+
+Symbol       Value
+I             1
+V             5
+X             10
+L             50
+C             100
+D             500
+M             1000
+For example, 2 is written as II in Roman numeral, just two ones added together. 12 is written as XII, which is simply X + II. The number 27 is written as XXVII, which is XX + V + II.
+
+Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:
+
+I can be placed before V (5) and X (10) to make 4 and 9. 
+X can be placed before L (50) and C (100) to make 40 and 90. 
+C can be placed before D (500) and M (1000) to make 400 and 900.
+Given a roman numeral, convert it to an integer.
+
+Example 1:
+Input: s = "III"
+Output: 3
+Explanation: III = 3.
+
+Example 2:
+Input: s = "LVIII"
+Output: 58
+Explanation: L = 50, V= 5, III = 3.
+
+Example 3:
+Input: s = "MCMXCIV"
+Output: 1994
+Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
+*/ 
+
+function romanToInt(s:string): number {
+    // membuat dictionary simbol dan value 
+    const dictionary:{[key:string]:number} = {
+        I:1,
+        V:5,
+        X:10,
+        L:50,
+        C:100,
+        D:500,
+        M:1000
+    }
+    // inisialisasi variabel penampung total
+    let total = 0;
+    // looping index (for loop)  
+    
+
+    for(let i = 0; i < s.length;i++){
+        let current = dictionary[s[i]];
+        let next = dictionary[s[i+1]];
+        
+        console.log(current); //output : 1 , 5 
+        
+        if(next && current < next){
+            total = total +  next - current; // total += next-current
+            i++;
+            // console.log(total);
+        } else {
+            total = total + current; // total += current 
+        }
+
+    }
+
+    // return variabel penampung
+    return total;
+};
+
+console.log(romanToInt('XVII'));
+console.log(romanToInt('MCMXCIV')); //expected output: 1994
+
+
+// Exercise 5 - Remove Duplicates from Sorted Array
+/*
+Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums.
+
+Consider the number of unique elements of nums to be k, to get accepted, you need to do the following things:
+
+Change the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. The remaining elements of nums are not important as well as the size of nums.
+Return k.
+
+Example 1:
+
+Input: nums = [1,1,2]
+Output: 2, nums = [1,2,_]
+Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+
+Example 2:
+
+Input: nums = [0,0,1,1,1,2,2,3,3,4]
+Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
+Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+
+*/ 
+
+
+
+
+
+
