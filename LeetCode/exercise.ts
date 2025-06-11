@@ -212,8 +212,167 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 */ 
 
+function removeDuplicates(nums: number[]): number {
+    let k = 1;
+
+    if(nums.length === null){
+        return 0
+    }
+
+    // akses isi array 
+    for(let i = 0; i < nums.length; i++){
+        if(nums[i] !== nums[k-1]){
+            nums[k] = nums[i];
+            k++
+        }
+    }
+    return k; 
+    
+};
+
+console.log(removeDuplicates([1,1,2]));
 
 
+// Exercise 6 - PlusOne
+/*
+You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
 
+Increment the large integer by one and return the resulting array of digits.
+
+Example 1:
+Input: digits = [1,2,3]
+Output: [1,2,4]
+Explanation: The array represents the integer 123.
+Incrementing by one gives 123 + 1 = 124.
+Thus, the result should be [1,2,4].
+
+Example 2:
+Input: digits = [4,3,2,1]
+Output: [4,3,2,2]
+Explanation: The array represents the integer 4321.
+Incrementing by one gives 4321 + 1 = 4322.
+Thus, the result should be [4,3,2,2].
+
+Example 3:
+Input: digits = [9]
+Output: [1,0]
+Explanation: The array represents the integer 9.
+Incrementing by one gives 9 + 1 = 10.
+Thus, the result should be [1,0].
+
+*/ 
+function plusOne(digits: number[]): number[] {
+    let lastIndex = digits.length - 1
+
+    for(let i = lastIndex; i >= 0; i--){
+        if (digits[i] < 9) {
+            digits[i] += 1; 
+            return digits;
+        } else {
+            digits[i] = 0; 
+        }
+    }
+    digits.unshift(1);
+    return digits;
+};
+
+console.log(plusOne([1,2,3]));
+
+// Exercise 7 - Find the Index of the First Occurence in a String
+/*
+Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+Example 1
+Input: haystack = "sadbutsad", needle = "sad"
+Output: 0
+Explanation: "sad" occurs at index 0 and 6.
+The first occurrence is at index 0, so we return 0.
+
+Example 2:
+Input: haystack = "leetcode", needle = "leeto"
+Output: -1
+Explanation: "leeto" did not occur in "leetcode", so we return -1.
+
+*/ 
+
+function strStr(haystack: string, needle: string) {
+    // console.log(haystack);
+    // console.log(needle);
+
+    let findIndex = haystack.indexOf('sadbutsad')    
+    return findIndex
+};
+
+console.log(strStr("sadbutsad","sad"));
+
+
+// Exercise 8 
+/*
+Given a string s consisting of words and spaces, return the length of the last word in the string.
+
+A word is a maximal substring consisting of non-space characters only.
+
+Example 1:
+Input: s = "Hello World"
+Output: 5
+Explanation: The last word is "World" with length 5.
+
+Example 2:
+Input: s = "   fly me   to   the moon  "
+Output: 4
+Explanation: The last word is "moon" with length 4.
+
+Example 3:
+Input: s = "luffy is still joyboy"
+Output: 6
+Explanation: The last word is "joyboy" with length 6.
+
+*/ 
+
+function lengthOfLastWord(s: string): number {
+    let trimWord = s.trim()
+    let kata = trimWord.split(" ");
+    let lastWordCount = 0;
+    // let lastWord = kata.length
+
+    for(let i = 0; i < kata.length; i++){
+        // console.log(kata[i]);
+        // console.log(kata[i].length);
+        lastWordCount = kata[i].length
+    }
+    return lastWordCount
+};
+
+console.log(lengthOfLastWord("Hello World saiyaaaa "));
+
+
+// Exercise 9 - Longest Common Prefix
+
+/*
+Write a function to find the longest common prefix string amongst an array of strings.
+If there is no common prefix, return an empty string "".
+
+Example 1:
+Input: strs = ["flower","flow","flight"]
+Output: "fl"
+
+Example 2:
+Input: strs = ["dog","racecar","car"]
+Output: ""
+Explanation: There is no common prefix among the input strings.
+*/ 
+
+function longestCommonPrefix(strs: string[]): string {
+    let temp:string = "";
+    
+    for(let i = 0; i < strs.length; i++){
+        // console.log(i);
+        temp = strs[i]
+        console.log(temp.slice(0,2));
+    }
+
+};
+
+console.log(longestCommonPrefix(["flower","flow","flight"]));
 
 
