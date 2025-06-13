@@ -68,12 +68,12 @@ class ParttimeEmployee extends Employee implements WorkingSalary{
 }
 
 
-const employeeA = new FulltimeEmployee('alya')
-employeeA.addWorkingHour(8);
+const employeeA = new FulltimeEmployee('adi')
+employeeA.addWorkingHour(10);
 console.log(employeeA.calculateTS());
 console.log(employeeA);
 
-const employeeB = new ParttimeEmployee('alyi');
+const employeeB = new ParttimeEmployee('ado');
 employeeB.addWorkingHour(10);
 console.log(employeeB.calculateTS());
 console.log(employeeB);
